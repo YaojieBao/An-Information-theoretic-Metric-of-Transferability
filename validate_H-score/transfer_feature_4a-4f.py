@@ -1,3 +1,6 @@
+"""
+This file is for extracting features from pre-trained resnet-50 layer4a to 4f. 
+"""
 import h5py
 from keras.applications.resnet50 import ResNet50
 from keras.models import Model 
@@ -11,13 +14,19 @@ import os
 #from keras.optimizers import Adam
 
 import numpy as np
-
+from skimage.transform import resize
+'''
 pic_dir_out = './224_resnet50_cifar/'
 
 f = h5py.File('./pic_out/Cifar100_color_data_train_224X224_p1.h5','r')
 X_train = f['X_train_p1'][:]
 #y_train1 = f['y_train_p1'][:]
 f.close()
+'''
+from keras.datasets import cifar100
+(X_train, y_train), (X_test, y_test) =cifar100.load_data(label_mode='fine')
+# For the limited memory capacity, features are extracted part by part. 
+X_train = np.array([resize(x,(224,224)) for x in X_train[:10000]], dtype=np.float32)
 
 alphabet = [chr(i) for i in range(97,123)]
 
@@ -35,10 +44,10 @@ for i, k in enumerate(np.linspace(25, 40, 6)):
     
     resnet50_train_output = model.predict(X_train)
     
-    file_name = os.path.join(pic_dir_out,'resnet50_train_4'+alphabet[i]+'_output_p3'+'.h5')
+    file_name = os.path.join(pic_dir_out,'resnet50_train_4'+alphabet[i]+'_output_p1'+'.h5')
     
     f = h5py.File(file_name,'w')          
-    f.create_dataset('resnet50_train_4'+alphabet[i]+'_output_p3', data = resnet50_train_output)
+    f.create_dataset('resnet50_train_4'+alphabet[i]+'_output_p1', data = resnet50_train_output)
     f.close()
     
     print('resnet50_train_4'+alphabet[i]+'_output is done!')
