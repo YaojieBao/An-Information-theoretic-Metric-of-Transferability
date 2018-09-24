@@ -19,5 +19,5 @@ extract features by running transfer_feature_4a-4f.py. Anyway, you should put th
 ### Step 2: Computing Empirical Performance and H-scores
 You can run H-score_vs_performance.py to reproduce our results. 
 <div align="center">
-  <img src="results/h-score_performance.png"  width="400px" />
+  <img src="../results/h-score_performance.png" width="400px" />
 </div>
