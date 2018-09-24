@@ -2,7 +2,7 @@
 This repository contains the codes of the experiments in Paper An Information-theoretic Metric of Transferability for Task Transfer Learning
 ## Requirements
 **Python**: see [`requirement.txt`](https://github.com/StanfordVL/taskonomy/blob/master/taskbank/requirement.txt) for complete list of used packages.
-## H-core Computation
+## H-score Computation
 Given an arbitrary feature function, you can evaluate H-score simply by calling the following function 
 ```bash
 def getCov(X):
