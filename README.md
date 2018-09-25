@@ -21,7 +21,7 @@ def getHscore(f,Z):
     
     Covg=getCov(g)
     score=np.trace(np.dot(np.linalg.pinv(Covf,rcond=1e-15), Covg))
-return score
+    return score
 ```
 ## Demo
 To see how fast H-score can be computed and how amazingly H-score is in accordance with empirical performance, you can reproduce the experiment Validation of H-score within a few minutes. 
