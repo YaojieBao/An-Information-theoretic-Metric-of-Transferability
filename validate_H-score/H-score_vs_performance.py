@@ -116,10 +116,10 @@ for j,k in enumerate(np.linspace(10000,60000,6,dtype=np.int)):
         #resnet50_train_labels = f['resnet50_train_4'+alphabet[i]+'_labels'][:]
         f.close()
         
-        file_name = os.path.join(pic_dir_out,'resnet50_train_4'+alphabet[i]+'_output'+'.h5')
+        file_name = os.path.join(pic_dir_out,'resnet50_train_4'+alphabet[i]+'_output_p0'+'.h5')
         #if os.path.exists(file_name):
         f = h5py.File(file_name,'r')
-        resnet50_train_output_p0 = f['resnet50_train_4'+alphabet[i]+'_output'][:]
+        resnet50_train_output_p0 = f['resnet50_train_4'+alphabet[i]+'_output_p0'][:]
         #resnet50_train_labels = f['resnet50_train_4'+alphabet[i]+'_labels'][:]
         f.close()
         
